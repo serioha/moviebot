@@ -72,7 +72,7 @@ function processPostback(event) {
                 name = bodyObj.first_name;
                 greeting = "Hi " + name + ". ";
             }
-            var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
+            var message = greeting + "My name is Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
             sendMessage(senderId, {text: message});
         });
     } else if (payload === "Correct") {
@@ -117,7 +117,7 @@ function processMessage(event) {
 }
 
 function findMovie(userId, movieTitle) {
-    request("http://www.omdbapi.com/?type=movie&t=" + movieTitle, function (error, response, body) {
+    request("http://www.omdbapi.com/?i=tt3896198&h=600&apikey=636d7c5c&type=movie&t=" + movieTitle, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var movieObj = JSON.parse(body);
             if (movieObj.Response === "True") {
